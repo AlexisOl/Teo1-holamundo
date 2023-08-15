@@ -1,0 +1,95 @@
+
+
+
+  .formlogin {
+    box-sizing: border-box;
+    padding: 2rem;
+    border-radius: 1rem;
+    background-color: hsl(0, 0%, 100%);
+    border: 4px solid hsl(0, 0%, 90%);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin: 25px;
+
+  }
+  
+  .full-width {
+    grid-column: span 2;
+  }
+
+  .boton1 {
+    margin-left: 10px;
+    transition-duration: 0.4s;
+    background: #158c2f;
+    border: 1px solid #095604;
+    border-radius: 6px;
+    box-shadow: rgba(0, 0, 0, 0.1) 1px 2px 4px;
+    box-sizing: border-box;
+    color: #FFFFFF;
+    cursor: pointer;
+    display: inline-block;
+    width: 320px;
+    height: 75px;
+  }
+
+
+  .c-img{
+      height: 100%;
+      object-fit: cover;
+      filter: brightness(0.8);
+      border: 2px solid rgb(65, 42, 42);
+      margin: 15px;
+  }
+  .c-item{
+      height: 480px;
+  }
+
+  .carousel-inner > .item > img, .carousel-inner > .item > a > img  {
+    height: 70vh;
+    min-height: 350px;
+    width: 1700px;
+    margin: 0 auto;
+    background: no-repeat center center scroll;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+
+
+  #footerfinal {
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    padding: 25px;
+    height: 100px;
+    background-color: black;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 15px;
+
+  }
+
+  body {
+    position: relative;
+    margin: 0;
+    padding-bottom: 6rem;
+    min-height: 100%;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+  }
+
+  
+
+.container_Login{
+  margin: 20px;
+}
+.tituloColaboradores{
+  text-align: center;
+  margin: auto;
+  padding: 50px;
+
+}
