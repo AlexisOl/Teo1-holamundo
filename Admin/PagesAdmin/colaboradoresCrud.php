@@ -15,7 +15,15 @@ include("../db/conexion.php");
 
 if ($_POST) {
   $nuevaconexion = new conexion();
-  $sql ="INSERT INTO `COLABORADORES` (`identificadorColaborador`, `nombre`, `areaInvestigacion`, `areaTrabajo`, `imagen`) VALUES (NULL, 'June Huh', 'Algebra diferencial', 'Investigador', 'img4.jpg');";
+
+  // AHORA CADA VALOR 
+
+  $nombre = $_POST['valorUsuario'];
+  $imagen = $_POST['valorImagen'];
+  $areaInv = $_POST['valorAreaInv'];
+  $areaTrabajo = $_POST['valorTrabajo'];
+
+  $sql ="INSERT INTO `COLABORADORES` (`identificadorColaborador`, `nombre`, `areaInvestigacion`, `areaTrabajo`, `imagen`) VALUES (NULL, '$nombre', '$areaInv', '$areaTrabajo', 'imagen');";
   $nuevaconexion->ejecucion($sql);
   echo "conexion exitosa";
 }
@@ -37,18 +45,18 @@ if ($_POST) {
   </div>
 
   <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Area de Investigacion</label>
-    <input name="valorContraseña" type="password" class="form-control" id="exampleInputPassword1">
+    <label for="exampleInputAreaInv" class="form-label">Area de Investigacion</label>
+    <input name="valorAreaInv" type="text" class="form-control" id="exampleInputAreaInv">
   </div>
 
   <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Area de Trabajo</label>
-    <input name="valorContraseña" type="password" class="form-control" id="exampleInputPassword1">
+    <label for="exampleInputTrabajo" class="form-label">Area de Trabajo</label>
+    <input name="valorTrabajo" type="text" class="form-control" id="exampleInputTrabajo">
   </div>
 
   <div class="mb-3">
-    <label for="exampleInputPassword1" class="form-label">Imagen de la persona</label>
-    <input name="valorContraseña" type="file" class="form-control" id="exampleInputPassword1">
+    <label for="exampleInputImg" class="form-label">Imagen de la persona</label>
+    <input name="valorImagen" type="file" class="form-control" id="exampleInputimg">
   </div>
 
   

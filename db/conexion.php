@@ -32,6 +32,14 @@ class conexion {
     // crea ejecucion
     return $this->conexion->lastInsertId();
    }
+
+   // para select
+
+   public function consult($sql) {
+    $valor = $this->conexion->prepare($sql);
+    $valor->execute();
+    return $valor->fetchAll();
+   }
 }
 
 
