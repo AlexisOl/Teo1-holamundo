@@ -54,12 +54,12 @@ if ($_POST) {
 
         <div class="mb-3">
             <label for="exampleInputAreaInv" class="form-label">Contrasenia</label>
-            <input name="valorPassword" type="password" class="form-control" id="exampleInputPassword">
+            <input name="valorPassword" type="text" class="form-control" id="exampleInputPassword">
         </div>
 
         <div class="mb-3">
             <label for="exampleInputTrabajo" class="form-label">Repita contrasenia</label>
-            <input name="valorPassword2" type="password" class="form-control" id="exampleInputPasswordAgain">
+            <input name="valorPassword2" type="text" class="form-control" id="exampleInputPasswordAgain">
         </div>
 
 
