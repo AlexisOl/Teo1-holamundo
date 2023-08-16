@@ -1,40 +1,5 @@
-<!--CRUD PARA LOS COLABORADORES-->
 <?php
 include("../db/conexion.php");
-?>
-
-<?php
-
-if ($_POST) {
-
-    if (isset($_POST["insertar"])){
-
-
-        $nuevaconexion = new conexion();
-
-        // AHORA CADA VALOR 
-    
-        $nombre = $_POST['valorUsuario'];
-        $password1 = $_POST['valorPassword'];
-        $password2 = $_POST['valorPassword2'];
-    
-        if ($password1 == $password2) {
-            $sql = "INSERT INTO `USUARIOS` (`id`, `nombre`, `contrasenia`) VALUES (NULL, '$nombre', '$password1');";
-            $nuevaconexion->ejecucion($sql);
-          
-        } else {
-            echo "Las contraseñas no coinciden";
-        }
-    }     elseif (isset($_POST["redirigir"])) {
-     
-            // Redirige después de insertar los datos
-            header("Location: /practica1-TS1/Admin/direccionEdicionUser.php");
-            exit(); // Asegurarse de que no haya más ejecución de código después de la redirección
-    }
-
-
-}
-
 ?>
 
 
@@ -67,9 +32,10 @@ if ($_POST) {
 
 
         <div class="container_buttons">
-            <button type="submit" class="btn boton btn-primary" name="insertar">Ingreso</button>
-            <button type ="submit" class="btn boton btn-info" name="redirigir">Otras manipulaciones</button>
+            <button type="submit" class="btn boton btn-info">Buscar</button>
+            <button type="submit" class="btn boton  btn-warning">Editar</button>
+            <button type="submit" class="btn boton btn-danger">Eliminar</button>
+
         </div>
-       
     </form>
 </div>

@@ -94,3 +94,16 @@
 
 }
 
+.container_buttons{
+  display: flex;
+  justify-content: center;
+  margin-top: 20px; /* Margen superior */
+}
+
+.boton {
+  margin: 0 10px; /* Margen horizontal entre los botones */
+  padding: 10px 20px; /* Espacio interno dentro de los botones */
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
