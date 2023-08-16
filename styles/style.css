@@ -107,3 +107,7 @@
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
+
+.custom-icon {
+  font-size: 2rem; /* Puedes ajustar el tamaño aquí */
+}
