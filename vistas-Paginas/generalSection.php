@@ -37,12 +37,40 @@
     <span class="visually-hidden">Next</span>
   </button>
 </div>
-
+<hr/>
 <div class="p-5 bg-light">
   <div class="container">
     <h1 class="display-3" style="color:black;">Informacion</h1>
     <hr class="barra">
   </div>
 </div>
+
+
+
+    <!--GENERADOR DE CARTAS NOTICIAS | COLABORADORES-->
+    <div class="cardContainer">
+        <div class="row">
+                <div class="col-md-6 mb-6"> <!-- Cambia a col-md-6 si quieres 2 columnas -->
+                    <div class="card d-flex flex-column align-items-center">
+                        <img class="card-img-top" style="width: 60%;" src="..." alt="">
+                        <div class="card-body">
+                            <h5 class="card-title">Conoce las ultimas Noticias</h5>
+                            <p class="card-text">..</p>
+                            <p class="card-text"><small class="text-muted">..</small></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-6"> <!-- Cambia a col-md-6 si quieres 2 columnas -->
+                    <div class="card d-flex flex-column align-items-center">
+                        <img class="card-img-top" style="width: 60%;" src="..." alt="">
+                        <div class="card-body">
+                            <h5 class="card-title">Conoce a nuestros Colaboradore</h5>
+                            <p class="card-text">..</p>
+                            <p class="card-text"><small class="text-muted">..</small></p>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
 
 <?php include("./sections/footer.php") ?>

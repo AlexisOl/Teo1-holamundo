@@ -27,9 +27,9 @@
                 <!-- Secciones alineadas a la derecha -->
                 <div class="nav navbar-nav ms-auto">
                     <a class="nav-item nav-link" href="direccionNosotros.php">Nosotros</a>
-                    <a class="nav-item nav-link" href="">Noticias</a>
+                    <a class="nav-item nav-link" href="direccionNoticias.php">Noticias</a>
                     <a class="nav-item nav-link" href="direccionColaborador.php">Colaboradores</a>
-                    <a class="nav-item nav-link" href="vistas-Paginas/vistaLogin.php">Actividades</a>
+                    <a class="nav-item nav-link" href="direccionActividades.php">Actividades</a>
                     <a class="nav-item nav-link" href="prueba2.php">Ingreso Usuarios</a>
                 </div>
             </div>

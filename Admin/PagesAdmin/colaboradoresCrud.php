@@ -19,11 +19,18 @@ if ($_POST) {
   // AHORA CADA VALOR 
 
   $nombre = $_POST['valorUsuario'];
-  $imagen = $_POST['valorImagen'];
+
+  $tiempo = new DateTime();
+
+  $imagen =$tiempo->getTimestamp()."_".$_FILES['valorImagen']['name'];
+  $ingresoImagen =$_FILES['valorImagen']['tmp_name'];
+  //ingreso de foros
+  move_uploaded_file($ingresoImagen,"../img/imagenesColaboradores/".$imagen);
+  
   $areaInv = $_POST['valorAreaInv'];
   $areaTrabajo = $_POST['valorTrabajo'];
 
-  $sql ="INSERT INTO `COLABORADORES` (`identificadorColaborador`, `nombre`, `areaInvestigacion`, `areaTrabajo`, `imagen`) VALUES (NULL, '$nombre', '$areaInv', '$areaTrabajo', 'imagen');";
+  $sql ="INSERT INTO `COLABORADORES` (`identificadorColaborador`, `nombre`, `areaInvestigacion`, `areaTrabajo`, `imagen`) VALUES (NULL, '$nombre', '$areaInv', '$areaTrabajo', '$imagen');";
   $nuevaconexion->ejecucion($sql);
   echo "conexion exitosa";
 }

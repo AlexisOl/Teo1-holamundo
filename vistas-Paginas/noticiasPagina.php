@@ -7,13 +7,19 @@ include("./db/conexion.php");
 <?php
 //GENERA LA CONSULTA Y CONEXION 
  $conexionColaboradores = new conexion();
- $sentencia = $conexionColaboradores->consult("SELECT * FROM `COLABORADORES`");
+ $sentencia = $conexionColaboradores->consult("SELECT * FROM `NOTICIAS`");
 
 ?>
 
+
+
+<!--
+
+GENERACION DE CARDS PARA LAS NOTICIAS
+-->
 <div class="container">
     <div class="tituloColaboradores">
-        <h2>Listado de Colaboradores</h2>
+        <h2>Listado de Noticias</h2>
         <hr>
     </div>
     <!--GENERADOR DE CARTAS-->
