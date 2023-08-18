@@ -111,3 +111,30 @@
 .custom-icon {
   font-size: 2rem; /* Puedes ajustar el tamaño aquí */
 }
+.table {
+  font-size: 14px;
+  border-radius: 10px;
+}
+
+.table thead th {
+  background-color: #f2f2f2;
+}
+
+.table tbody tr:nth-child(odd) {
+  background-color: #f7f7f7;
+}
+.table thead th {
+  font-size: 16px;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+}
+
+.error-message {
+  display: none;
+  color: red;
+  font-size: 12px;
+}
+.error-message-active {
+  display: block;
+}

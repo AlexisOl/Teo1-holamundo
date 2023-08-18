@@ -1,15 +1,13 @@
 <?php
 include("./sections/header.php");
 ?>
+<!--llamada del controlador-->
 <?php
-include("./db/conexion.php");
-?>
-<?php
-//GENERA LA CONSULTA Y CONEXION 
- $conexionColaboradores = new conexion();
- $sentencia = $conexionColaboradores->consult("SELECT * FROM `COLABORADORES`");
+require_once("controlador/manejo.php");
+manejo::mostrarCOlaboradores();
 
 ?>
+<!--vista-->
 
 <div class="container">
     <div class="tituloColaboradores">
@@ -19,10 +17,15 @@ include("./db/conexion.php");
     <!--GENERADOR DE CARTAS-->
     <div class="cardContainer">
         <div class="row">
-            <?php foreach($sentencia as $valores) {?> 
+            <?php foreach(resultado as $valores) {?> 
                 <div class="col-md-4 mb-4"> <!-- Cambia a col-md-6 si quieres 2 columnas -->
                     <div class="card d-flex flex-column align-items-center">
-                        <img class="card-img-top" style="width: 60%;" src="./img/imagenesColaboradores/<?php echo $valores['imagen']?>" alt="">
+                        <?php if($valores['imagen'] == null){?>
+                        <img class="card-img-top" style="width: 60%;" src="./img/imagenNulaColaborador/imgNull.jpg" alt="">
+                        <?php }else {?>
+                            <img class="card-img-top" style="width: 60%;" src="./img/imagenesColaboradores/<?php echo $valores['imagen']?>" alt="">
+                        <?php }?>
+
                         <div class="card-body">
                             <h5 class="card-title"><?php echo $valores['nombre']?></h5>
                             <p class="card-text"><?php echo $valores['areaInvestigacion']?></p>

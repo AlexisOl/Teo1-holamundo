@@ -40,6 +40,14 @@ class conexion {
     $valor->execute();
     return $valor->fetchAll();
    }
+
+   public function muestraColaboradores($tabla)
+   {
+       $sql = "SELECT * FROM " . $tabla . ";";
+       $generarAccion = $this->conexion->query($sql);
+       return $generarAccion->fetchAll();
+   
+   }
 }
 
 
