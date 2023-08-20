@@ -4,8 +4,6 @@
   ?>
 
 
-
-
 <!--CRUD PARA LOS COLABORADORES-->
 <?php
 include("../db/conexion.php");
@@ -41,10 +39,7 @@ if ($_POST) {
       $sql ="INSERT INTO `COLABORADORES` (`identificadorColaborador`, `nombre`, `areaInvestigacion`, `areaTrabajo`, `imagen`) VALUES (NULL, '$nombre', '$areaInv', '$areaTrabajo', '$imagen');";
       $nuevaconexion->ejecucion($sql);
     
-    } else {
-      if (empty($_POST["valorUsuario"])) {
-        $nameErr = "Name is required";
-      }
+     
     }
    
   }   elseif (isset($_POST["redirigir"])) {
@@ -66,26 +61,35 @@ if ($_POST) {
   <hr>
 </div>
 <!--INGRESO DE LOGIN -->
-<form  class="formlogin" method="post" enctype="multipart/form-data">
+<form  class="formlogin need-validation was-validated" method="post" enctype="multipart/form-data">
   <div class="mb-3">
     <label for="nombreUsuario" class="form-label">Nombre de Colaborador</label>
-    <input name="valorUsuario" type="text" class="form-control" id="nombreUsuario" aria-describedby="nombreHelp" onblur="validateField('nombreUsuario', 'errorUsuario')" >
-     <span class="error">* <?php echo $nameErr;?></span>
-  <br><br>
+    <input name="valorUsuario" type="text" class="form-control" id="nombreUsuario" aria-describedby="nombreHelp" required="" >
+    <div class="invalid-feedback">
+        Nombre requerido
+    </div>
 
   </div>
 
   <div class="mb-3">
     <label for="exampleInputAreaInv" class="form-label">Area de Investigacion</label>
-    <input name="valorAreaInv" type="text" class="form-control" id="exampleInputAreaInv" onblur="validateField('nombreUsuario', 'errorUsuario')" >
-    <div class="error-message" id="errorUsuario">Campo obligatorio</div>
+    <input name="valorAreaInv" type="text" class="form-control" id="exampleInputAreaInv" required="">
+    
+    <div class="invalid-feedback">
+        Area de Investigacion requerida
+    </div>
+
 
   </div>
 
   <div class="mb-3">
     <label for="exampleInputTrabajo" class="form-label">Area de Trabajo</label>
-    <input name="valorTrabajo" type="text" class="form-control" id="exampleInputTrabajo" onblur="validateField('nombreUsuario', 'errorUsuario')">
-    <div class="error-message" id="errorUsuario">Campo obligatorio</div>
+    <input name="valorTrabajo" type="text" class="form-control" id="exampleInputTrabajo" required="">
+    
+    <div class="invalid-feedback">
+        Trabajo requerido
+    </div>
+
 
   </div>
 
@@ -98,7 +102,7 @@ if ($_POST) {
 
   <div class="container_buttons">
             <button type="submit" class="btn boton btn-primary" name="insertar">Ingreso</button>
-            <button type ="submit" class="btn boton btn-info" name="redirigir">Otras manipulaciones</button>
+            <button type ="submit" class="btn boton btn-info" name="redirigir" formnovalidate>Otras manipulaciones</button>
         </div>
 </form>
 </div> 

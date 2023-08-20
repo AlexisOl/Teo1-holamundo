@@ -130,11 +130,6 @@
   border: none;
 }
 
-.error-message {
-  display: none;
-  color: red;
-  font-size: 12px;
-}
-.error-message-active {
-  display: block;
+.error {
+  color: #FF0000;
 }

@@ -1,7 +1,7 @@
 <?php
 
 
-class conexion {
+class modeloAdmin {
    private $host = 'localhost';
    private $dbname = 'escuelaMatematicas';
    private $username = 'root';
@@ -49,6 +49,7 @@ class conexion {
    
    }
 
+
    public function verColaboradores($tabla)  {
     $sql = "SELECT * FROM " . $tabla . ";";
     $generarAccion = $this->conexion->query($sql);
@@ -75,6 +76,17 @@ class conexion {
 
     }
 
+   }
+   public function buscarColaboradores($tabla, $identificador) {
+    $sql = "SELECT * FROM " . $tabla .  " WHERE `identificadorColaborador` = ".$identificador.";";
+    $generarAccion = $this->conexion->query($sql);
+    return $generarAccion->fetchAll(); 
+   }
+
+
+   //noticias
+   public function guardarInformacion($tabla) {
+    
    }
 }
 

@@ -28,11 +28,11 @@ if (isset($_SESSION['valorUsuario'])!= "alexxus"){
                 <div class="nav navbar-nav">
                     <a class="nav-item nav-link" href="/practica1-TS1/generalAdmin.php">Inicio</a>
                         <!--OTRAS SECCIONES-->
-                        <a class="nav-item nav-link" href="">Ingreso Noticias</a>
+                        <a class="nav-item nav-link" href="/practica1-TS1/Admin/direccionCreacionNoticia.php">Ingreso Noticias</a>
                         <a class="nav-item nav-link" href="/practica1-TS1/Admin/direccionColaboradoresCrud.php">Ingreso Colaboradores</a>
                         <a class="nav-item nav-link" href="/practica1-TS1/Admin/direccionCreacionUser.php">Ingreso Usuarios</a>
-                        <a class="nav-item nav-link" href="/practica1-TS1/Admin/cerrarSesionAdmin.php">Cerrar Sesion</a>
                         <a class="nav-item nav-link" href="">Vista Comtentarios</a>
+                        <a class="nav-item nav-link" href="/practica1-TS1/Admin/cerrarSesionAdmin.php">Cerrar Sesion</a>
                 </div>
             </div>
         </nav>
