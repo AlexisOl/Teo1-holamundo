@@ -27,5 +27,26 @@ class manejoAdmin{
         return $busqueda;
     }
     //noticias
+    static function ingresoNoticias($titulo, $resumen, $general, $imagen ){
+        $ingresoNoticias = new modeloAdmin();
+        $ingresosql = $ingresoNoticias->guardarInformacionNoticia("NOTICIAS", $titulo, $resumen, $general, $imagen);
+        
+    }
+    static function mostrarNoticias(){
+        $colaboradores = new modeloAdmin();
+        define("resultadoNoticias",$colaboradores->muestraNoticias("NOTICIAS"));
+    }   
+    static function eliminarNoticias($idNoticia) {
+        $colaboradores = new modeloAdmin();
+        $colaboradores->eliminarNoticias("NOTICIAS",$idNoticia);
+      
+    }
+
+    //asignacion noticias
+    static function ingresoAsignacionNoticias($identificadorColab, $area, $identificadorNoti, $fecha){
+        $ingresoNoticias = new modeloAdmin();
+        $ingresosql = $ingresoNoticias->guardarAsigncacionInformacionNoticia("ASIGNACION_NOTICIAS",$identificadorColab, $area, $identificadorNoti, $fecha);
+        
+    }
 
 }

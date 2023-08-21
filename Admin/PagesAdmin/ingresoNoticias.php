@@ -4,12 +4,42 @@ require_once("controladorAdministrador/controladorAdmin.php");
 
 //buscar
 if ($_POST) {
+    $titulo = $_POST['titulo'];
+    $descripcion = "";
+    $contenido = "";
+    $imagen = "";
+
     if (isset($_POST["buscar"])) {
         $elementoABuscar = $_POST['identificador'];
         $busqueda = manejoAdmin::buscarColaboradorId($elementoABuscar);
         print_r($busqueda);
+
+        
+    } elseif (isset($_POST["guardar_noticia"])) {
+        $titulo = $_POST['titulo'];
+        $descripcion = $_POST['Descripcion'];
+        $contenido = $_POST['contenido'];
+
+        $tiempo = new DateTime();
+        if($_FILES['valorImagen']['name'] != null) {
+          $imagen =$tiempo->getTimestamp()."_".$_FILES['valorImagen']['name'];
+          $ingresoImagen =$_FILES['valorImagen']['tmp_name'];
+          //ingreso de foros
+          move_uploaded_file($ingresoImagen,"../img/imagenesNoticias/".$imagen);
+        } else{
+          $imagen =null;
+    
+        }
+            manejoAdmin::ingresoNoticias($titulo, $descripcion, $contenido, $imagen);
+   
+    }  elseif (isset($_POST["redirigir"])) {
+     
+        // Redirige después de insertar los datos
+        header("Location: /practica1-TS1/Admin/direccionEdicionNoticia.php");
+        exit(); // Asegurarse de que no haya más ejecución de código después de la redirección
     }
 }
+
 
 ?>
 
@@ -47,21 +77,21 @@ if ($_POST) {
                 <div class="col-md-10">
                     <div class="col-sm-12">
                         <label class="form-label" for="titulo">Titulo</label>
-                        <input id="titulo" type="text" class="form-control" required="">
+                        <input name="titulo" id="titulo" type="text" class="form-control" required="">
                         <div class="invalid-feedback">
                             Titulo requerido
                         </div>
                     </div>
                     <div class="col-sm-12">
                         <label class="form-label" for="Descripcion">Descripcion</label>
-                        <textarea class="form-control" id="Descripcion" rows="3" required=""></textarea>
+                        <textarea name="Descripcion" class="form-control" id="Descripcion" rows="3" required=""></textarea>
                         <div class="invalid-feedback">
                             Descripcion requerida
                         </div>
                     </div>
                     <div class="col-sm-12">
                         <label class="form-label" for="contenido">Contenido</label>
-                        <textarea class="form-control" id="contenido" rows="6" required=""></textarea>
+                        <textarea name="contenido" class="form-control" id="contenido" rows="6" required=""></textarea>
                         <div class="invalid-feedback">
                             Contenido requerido
                         </div>
@@ -73,10 +103,80 @@ if ($_POST) {
 
                 </div>
             </div>
-            <button class="w-100 btn btn-primary btn-md" type="submit" name="buscar">Buscar</button>
+            <br>
+            <br>
+            <div id="liveAlertPlaceholder"></div>
+
+            <div class="botones">
+                <button class="w-100 btn btn-primary btn-md" type="submit" name="guardar_noticia">Guardar Noticia</button>
+                <br>
+                <br>
+                <br>
+                <button type ="submit" class="btn boton btn-info w-100" name="redirigir" formnovalidate>Vista Especifica</button>
+
+
+            </div>
         </form>
+
         <hr class="my-4" />
-        <button class="w-100 btn btn-primary btn-md" type="submit" name="buscar">Guardar Informacion Global</button>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <div class="col-lg-16 row-md-10">
+            <h2 class="mb-3">Informacion General Para la Creacion De Noticias</h2>
+            <hr>
+            <br>
+            <div class="row">
+                <div class="col-md-6">
+                    <h4 class="mb-3">Informacion colaborador</h4>
+                    <table class="table table-bordered table-striped table-hover">
+                        <thead class="table-dark">
+                            <th>Identificador</th>
+                            <th>Nombre colaborador</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><?php echo  $elementoABuscar; ?></td>
+                                <td><?php echo isset($busqueda[0]['nombre']) ? $busqueda[0]['nombre'] : 'nada'; ?></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div class="col-md-6">
+                    <h4 class="mb-3">Informacion Noticias</h4>
+                    <table class="table table-bordered table-striped table-hover">
+                        <thead class="table-dark">
+                            <th>Titulo</th>
+                            <th>Descripcion</th>
+                            <th>Contenido</th>
+                            <th>Image</th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><?php echo $titulo ?></td>
+                                <td><?php echo $descripcion ?></td>
+                                <td><?php echo $contenido ?></td>
+                                <td>
+
+                                    a
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+
+
+            <div class="row g-8">
+                <h4 class="mb-3">Ingrese el identificador del colaborador</h4>
+
+            </div>
+
+            <button class="w-100 btn btn-primary btn-md" type="submit" name="buscar">Guardar Informacion Global</button>
+        </div>
 
     </div>
 </div>

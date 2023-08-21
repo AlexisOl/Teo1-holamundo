@@ -51,8 +51,8 @@ CREATE TABLE `ACTIVIDADES`(
 --- para asignacion de Noticias
 CREATE TABLE `ASIGNACION_NOTICIAS`(
     `id` INT auto_increment  PRIMARY KEY,
-    `identificadorNoticia` DATE NOT NULL,
-    `identificadorColabo` VARCHAR(300) NOT NULL,
+    `identificadorNoticia` INT NOT NULL,
+    `identificadorColabo` INT NOT NULL,
     `fecha` date NOT NULL,
     `area` VARCHAR(60) NOT NULL
 )ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 ;

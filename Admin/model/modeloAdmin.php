@@ -85,11 +85,53 @@ class modeloAdmin {
 
 
    //noticias
-   public function guardarInformacion($tabla) {
+   public function guardarInformacionNoticia($tabla,  $titulo, $resumen, $general, $imagen) {
+        $sql = "INSERT INTO NOTICIAS (titulo, resumen, general, imagen) VALUES (:titulo, :resumen, :general, :imagen)";
+        $stmt = $this->conexion->prepare($sql);
+        $stmt->bindParam(':titulo', $titulo, PDO::PARAM_STR);
+        $stmt->bindParam(':resumen', $resumen, PDO::PARAM_STR);
+        $stmt->bindParam(':general', $general, PDO::PARAM_STR);
+        $stmt->bindParam(':imagen', $imagen, PDO::PARAM_STR);
     
-   }
+        $stmt->execute();
+        return $this->conexion->lastInsertId();   
+    }
+
+    public function muestraNoticias($tabla)
+    {
+        $sql = "SELECT * FROM " . $tabla . ";";
+        $generarAccion = $this->conexion->query($sql);
+        return $generarAccion->fetchAll();
+    
+        }
+        public function eliminarNoticias($tabla, $id) {
+            try {
+                $sentenciaSql = "DELETE FROM " . $tabla . " WHERE `id` = " . $id . ";";
+                $generarAccion = $this->conexion->query($sentenciaSql);
+                if ($generarAccion) {
+                    header('Location:direccionEdicionNoticia.php');
+                    return true;
+                } else {
+                    return false;
+                }
+            }catch(exception $e){
+                echo "error en ".$e;
+        
+            }
+    }
+    //asignacion noticias
+
+    public function guardarAsigncacionInformacionNoticia($tabla,  $identificadorColab, $area, $identificadorNoti, $fecha) {
+        $sql = "INSERT INTO ".$tabla." (id, identificadorNoticia, identificadorColabo, fecha, area) VALUES (NULL, :identificadorNoti, :identificadorColab, :fecha, :area)";
+        $stmt = $this->conexion->prepare($sql);
+        $stmt->bindParam(':identificadorNoti', $identificadorNoti, PDO::PARAM_STR);
+        $stmt->bindParam(':identificadorColab', $identificadorColab, PDO::PARAM_STR);
+        $stmt->bindParam(':fecha', $fecha, PDO::PARAM_STR);
+        $stmt->bindParam(':area', $area, PDO::PARAM_STR);
+    
+        $stmt->execute();
+        return $this->conexion->lastInsertId();   
+    }
 }
-
-
 
 ?>
