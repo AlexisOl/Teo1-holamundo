@@ -1,7 +1,4 @@
 
-<?php
- include("./sectionsAdmin/headerAdmin.php");
-  ?>
 
 
 <!--CRUD PARA LOS COLABORADORES-->
@@ -107,5 +104,3 @@ if ($_POST) {
 </form>
 </div> 
 
-
-<?php include("./sectionsAdmin/footerAdmin.php"); ?>

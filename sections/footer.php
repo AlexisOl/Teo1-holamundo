@@ -3,32 +3,32 @@
 <br/>
 
 
-<footer id="footerfinal" class="bg-dark text-white">
+<footer id="footerfinal" class="bg-dark text-white fixed-footer">
   <!-- Grid container -->
   <div class="container p-4 pb-0">
-    <!-- Section: Social media -->
-    <section class="mb-4 d-flex justify-content-start">
-      <!-- Facebook -->
-      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button">
-        <i class="bi bi-facebook"></i>
-      </a>
+    <div class="row">
+      <div class="col-md-6 text-start">
+        <!-- Aquí coloca tu texto alineado a la izquierda -->
+        © 2023 Copyright: <a class="text-white" href="index.php">EscuelaMatemeticas.com</a>
+      </div>
+      <div class="col-md-6 text-end">
+        <!-- Aquí coloca tus iconos alineados a la derecha -->
+        <section class="mb-4 d-flex justify-content-end">
+          <!-- Facebook -->
+          <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button">
+            <i class="bi bi-facebook"></i>
+          </a>
 
-      <!-- Twitter -->
-      <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button">
-        <i class="bi bi-twitter"></i>
-      </a>
-    </section>
-    <!-- Section: Social media -->
+          <!-- Twitter -->
+          <a class="btn btn-outline-light btn-floating m-1" href="#!" role="button">
+            <i class="bi bi-twitter"></i>
+          </a>
+        </section>
+      </div>
+    </div>
   </div>
-  <!-- Grid container -->
-
-  <!-- Copyright -->
-  <div class="bg-dark text-white text-end p-3">
-    © 2023 Copyright:
-    <a class="text-white" href="index.php">EscuelaMatemeticas.com</a>
-  </div>
-  <!-- Copyright -->
 </footer>
+
 
 
 

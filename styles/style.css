@@ -57,22 +57,24 @@
     background-size: cover;
   }
 
-
-
   #footerfinal {
-    position: relative;
+    position: fixed;
+    left: 0;
     bottom: 0;
     width: 100%;
-    padding: 25px;
-    height: 100px;
-    background-color: black;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 15px;
-
+    padding: 1px 0; /* Reduce el espaciado vertical */
+    background-color: #343a40; /* Cambia el color de fondo según tu diseño */
+    color: white; /* Cambia el color del texto según tu diseño */
+    text-align: center;
+    height: 70px; /* Ajusta la altura deseada */
   }
+  .fixed-footer {
+    position: fixed;
+}
+
+  
+
+
 
   body {
     position: relative;
