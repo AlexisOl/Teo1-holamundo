@@ -30,9 +30,11 @@ if (isset($_SESSION['valorUsuario'])!= "alexxus"){
                         <!--OTRAS SECCIONES-->
                         <a class="nav-item nav-link" href="/practica1-TS1/Admin/direccionCreacionNoticia.php">Ingreso Noticias</a>
                         <a class="nav-item nav-link" href="/practica1-TS1/Admin/direccionAsignacionNoticia.php">Asignacion Noticias</a>
+                        <a class="nav-item nav-link" href="/practica1-TS1/Admin/direccionCreacionActividad.php">Ingreso Actividades</a>
+                        <a class="nav-item nav-link" href="/practica1-TS1/Admin/direccionAsigancionActividades.php">Asignacion Actividades</a>
                         <a class="nav-item nav-link" href="/practica1-TS1/Admin/direccionColaboradoresCrud.php">Ingreso Colaboradores</a>
                         <a class="nav-item nav-link" href="/practica1-TS1/Admin/direccionCreacionUser.php">Ingreso Usuarios</a>
-                        <a class="nav-item nav-link" href="">Vista Comtentarios</a>
+                        <a class="nav-item nav-link" href="/practica1-TS1/Admin/direccionComentarios.php">Vista Comtentarios</a>
                         <a class="nav-item nav-link" href="/practica1-TS1/Admin/cerrarSesionAdmin.php">Cerrar Sesion</a>
                 </div>
             </div>

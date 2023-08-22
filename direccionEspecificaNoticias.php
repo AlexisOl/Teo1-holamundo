@@ -1,0 +1,1 @@
+<?php include("./vistas-Paginas/noticiaEspecifica.php") ?>

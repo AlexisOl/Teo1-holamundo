@@ -175,7 +175,7 @@ if ($_POST) {
 
             </div>
 
-            <button class="w-100 btn btn-primary btn-md" type="submit" name="buscar">Guardar Informacion Global</button>
+            <button class="w-100 btn btn-primary btn-md" type="submit" name="verMas">Guardar Informacion Global</button>
         </div>
 
     </div>

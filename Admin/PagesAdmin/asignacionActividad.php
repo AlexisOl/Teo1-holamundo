@@ -4,19 +4,17 @@ require_once("controladorAdministrador/controladorAdmin.php");
 
 if ($_POST) {
   
-  //  manejoAdmin::mostrarNoticias();
-
     if (isset($_POST["guardar"])) {
-        $identificadorColab = $_POST['identificadorColab'];
+        $identificadorUser = $_POST['identificadorColab'];
         $area = $_POST['area'];
-        $identificadorNoti = $_POST['identificadorNoti'];
+        $identificadorAct = $_POST['identificadorNoti'];
         $fecha = $_POST['fecha'];
-        manejoAdmin::ingresoAsignacionNoticias($identificadorColab, $area, $identificadorNoti, $fecha);
+        manejoAdmin::ingresoAsignacionActividad($identificadorUser, $area, $identificadorAct, $fecha);
    
     }  elseif (isset($_POST["redirigir"])) {
      
         // Redirige después de insertar los datos
-        header("Location: /practica1-TS1/Admin/direccionEdicionAsignacionesNoticia.php");
+        header("Location: /practica1-TS1/Admin/direccionEdicionAsignacionActividades.php");
         exit(); // Asegurarse de que no haya más ejecución de código después de la redirección
     }
 }
@@ -27,7 +25,7 @@ if ($_POST) {
 
 <div class="row g-5">
     <div class="py-5 text-center">
-        <h1>Asignacion de Noticias</h1>
+        <h1>Asignacion de Actividades</h1>
         <hr />
     </div>
     <div class="col-lg-16 row-md-10">
@@ -35,7 +33,7 @@ if ($_POST) {
         <form class="needs-validation was-validated " method="post">
             <div class="row g-5">
                 <div class="col-sm-6">
-                    <label class="form-label" for="identificadorColab">Identificador Colaborador</label>
+                    <label class="form-label" for="identificadorColab">Identificador Usuario</label>
                     <input name="identificadorColab" id="identificadorColab" type="text" class="form-control" required="">
                     <div class="invalid-feedback">
                         Identificador requerido
@@ -45,21 +43,21 @@ if ($_POST) {
                     <label class="form-label" for="nombre">Area</label>
                     <input name="area" id="area" type="text" class="form-control"  required="" >
                     <div class="invalid-feedback">
-                        Identificador requerido
+                        Area requerido
                     </div>
                 </div>
                 <div class="col-sm-6">
-                    <label class="form-label" for="identificadorNoti">Identificador Noticia</label>
+                    <label class="form-label" for="identificadorNoti">Identificador Actividad</label>
                     <input name="identificadorNoti" id="identificadorNoti" type="text" class="form-control" required="">
                     <div class="invalid-feedback">
-                        Identificador requerido
+                        Actividad requerido
                     </div>
                 </div>
                 <div class="col-sm-6">
                     <label class="form-label" for="nombre">Fecha</label>
                     <input  name="fecha" id="fecha" type="date" class="form-control"  required="" >
                     <div class="invalid-feedback">
-                        Identificador requerido
+                        Fecha requerido
                     </div>
                 </div>
 
@@ -84,15 +82,15 @@ if ($_POST) {
                     <h4 class="mb-3">Informacion Asigacnion</h4>
                     <table class="table table-bordered table-striped table-hover">
                         <thead class="table-dark">
-                            <th>Identificador Colaborador</th>
-                            <th>Identificador Noticia</th>
+                            <th>Identificador Usuario</th>
+                            <th>Identificador Actividad</th>
                             <th>Fecha</th>
                             <th>Area</th>
                         </thead>
                         <tbody>
                             <tr>
-                                <td><?php echo $identificadorColab ?></td>
-                                <td><?php echo $identificadorNoti ?></td>
+                                <td><?php echo $identificadorUser ?></td>
+                                <td><?php echo $identificadorAct ?></td>
                                 <td><?php echo $fecha ?></td>
                                 <td><?php echo $area ?></td>
                             </tr>

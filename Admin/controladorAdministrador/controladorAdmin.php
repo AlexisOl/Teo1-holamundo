@@ -48,5 +48,41 @@ class manejoAdmin{
         $ingresosql = $ingresoNoticias->guardarAsigncacionInformacionNoticia("ASIGNACION_NOTICIAS",$identificadorColab, $area, $identificadorNoti, $fecha);
         
     }
+    static function mostrarAsignacionesNoticias(){
+        $colaboradores = new modeloAdmin();
+        define("resultadoAsigacionesNoticias",$colaboradores->muestraAsingacionNoticias("ASIGNACION_NOTICIAS"));
+    } 
+
+    //comentarios
+    static function mostrarComentarios(){
+        $colaboradores = new modeloAdmin();
+        define("resultadoComentarios",$colaboradores->muestraAsingacionNoticias("COMENTARIOS"));
+    } 
+
+    //actividades
+    static function ingresoActividades($titulo, $fecha_inicio, $fecha_fin , $descripcion, $imagen){
+        $ingresoNoticias = new modeloAdmin();
+        $ingresosql = $ingresoNoticias->guardarInformacionActividad("ACTIVIDADES", $titulo, $fecha_inicio, $fecha_fin, $descripcion, $imagen);
+        
+    }
+    static function mostrarActividades(){
+        $colaboradores = new modeloAdmin();
+        define("resultadoActividades",$colaboradores->muestraActividades("ACTIVIDADES"));
+    }   
+    static function eliminarActividades($idActividad) {
+        $colaboradores = new modeloAdmin();
+        $colaboradores->eliminarActividades("ACTIVIDADES",$idActividad);
+      
+    }
+  //asignacion Actividades
+  static function ingresoAsignacionActividad($identificadorUser, $area, $identificadorAct, $fecha){
+    $ingresoNoticias = new modeloAdmin();
+    $ingresosql = $ingresoNoticias->guardarAsigncacionInformacionActividad("ASIGNACION_ACTIVIDADES",$identificadorUser, $area, $identificadorAct, $fecha);
+    
+}
+static function mostrarAsignacionesActividades(){
+    $colaboradores = new modeloAdmin();
+    define("resultadoAsigacionesActividades",$colaboradores->muestraAsingacionActividad("ASIGNACION_ACTIVIDADES"));
+} 
 
 }

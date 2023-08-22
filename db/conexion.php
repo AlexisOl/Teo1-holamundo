@@ -17,7 +17,6 @@ class conexion {
     
         // Configurar el modo de error para mostrar excepciones
         $this->conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        echo "conexion realizada"."<br/>";
     
         // Resto de operaciones con la base de datos...
     } catch (PDOException $e) {
@@ -76,6 +75,94 @@ class conexion {
     }
 
    }
+    //noticias
+    public function muestraNoticias($tabla){
+        $sql = "SELECT * FROM " . $tabla . ";";
+        $generarAccion = $this->conexion->query($sql);
+        return $generarAccion->fetchAll();
+    
+    }
+   //asignaciones
+
+        public function muestraAsingacionNoticias($tabla){
+            $sql = "SELECT * FROM " . $tabla . ";";
+            $generarAccion = $this->conexion->query($sql);
+            return $generarAccion->fetchAll();
+
+        }  
+
+        public function mostrarOrdenDescendenteAsignacion($table){
+            $sql = "SELECT * FROM " . $table ." ORDER BY `id` DESC;";
+            $generarAccion = $this->conexion->query($sql);
+            return $generarAccion->fetchAll();
+        } 
+
+        public function buscarIdNoticia($tabla, $identificador) {
+            $sql = "SELECT * FROM " . $tabla .  " WHERE `identificadorNoticia` = ".$identificador.";";
+            $generarAccion = $this->conexion->query($sql);
+            return $generarAccion->fetchAll(); 
+        }
+        public function buscarIdNoticia_noticia($tabla, $identificador) {
+            $sql = "SELECT * FROM " . $tabla .  " WHERE `id` = ".$identificador.";";
+            $generarAccion = $this->conexion->query($sql);
+            return $generarAccion->fetchAll(); 
+        }
+        public function buscarIdNoticia_Colaborador($tabla, $identificador) {
+            $sql = "SELECT * FROM " . $tabla .  " WHERE `identificadorColaborador` = ".$identificador.";";
+            $generarAccion = $this->conexion->query($sql);
+            return $generarAccion->fetchAll(); 
+        }
+
+        //COMENTARIOS
+        public function guardarComentarios($tabla,  $correo, $mensaje, $comentario_noticia) {
+            $sql = "INSERT INTO ".$tabla." (id, correo, mensaje, comentario_noticia) VALUES (NULL, :correo, :mensaje, :comentario_noticia)";
+            $stmt = $this->conexion->prepare($sql);
+            $stmt->bindParam(':correo', $correo, PDO::PARAM_STR);
+            $stmt->bindParam(':mensaje', $mensaje, PDO::PARAM_STR);
+            $stmt->bindParam(':comentario_noticia', $comentario_noticia, PDO::PARAM_STR);
+        
+            $stmt->execute();
+            return $this->conexion->lastInsertId();   
+        }
+
+        //actividades
+        public function muestraActividades($tabla){
+            $sql = "SELECT * FROM " . $tabla . ";";
+            $generarAccion = $this->conexion->query($sql);
+            return $generarAccion->fetchAll();
+        
+        }
+
+        //asignacion Actividades
+        public function muestraAsingacionActividades($tabla){
+            $sql = "SELECT * FROM " . $tabla . ";";
+            $generarAccion = $this->conexion->query($sql);
+            return $generarAccion->fetchAll();
+
+        }  
+
+        public function mostrarOrdenDescendenteAsignacionActividades($table){
+            $sql = "SELECT * FROM " . $table ." ORDER BY `id` DESC;";
+            $generarAccion = $this->conexion->query($sql);
+            return $generarAccion->fetchAll();
+        } 
+
+        public function buscarIdActividad($tabla, $identificador) {
+            $sql = "SELECT * FROM " . $tabla .  " WHERE `identificadorActividad` = ".$identificador.";";
+            $generarAccion = $this->conexion->query($sql);
+            return $generarAccion->fetchAll(); 
+        }
+        public function buscarIdActividad_Actividad($tabla, $identificador) {
+            $sql = "SELECT * FROM " . $tabla .  " WHERE `identificador` = ".$identificador.";";
+            $generarAccion = $this->conexion->query($sql);
+            return $generarAccion->fetchAll(); 
+        }
+        public function buscarIdActividad_Usuario($tabla, $identificador) {
+            $sql = "SELECT * FROM " . $tabla .  " WHERE `id` = ".$identificador.";";
+            $generarAccion = $this->conexion->query($sql);
+            return $generarAccion->fetchAll(); 
+        }
+   
 }
 
 

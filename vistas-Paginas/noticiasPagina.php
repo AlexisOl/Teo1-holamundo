@@ -1,17 +1,12 @@
 <?php
 include("./sections/header.php");
 ?>
+
 <?php
-include("./db/conexion.php");
-?>
-<?php
-//GENERA LA CONSULTA Y CONEXION 
- $conexionColaboradores = new conexion();
- $sentencia = $conexionColaboradores->consult("SELECT * FROM `NOTICIAS`");
+require_once("controlador/manejo.php");
+manejo::mostrarAsignacionesNoticias();
 
 ?>
-
-
 
 <!--
 
@@ -25,14 +20,16 @@ GENERACION DE CARDS PARA LAS NOTICIAS
     <!--GENERADOR DE CARTAS-->
     <div class="cardContainer">
         <div class="row">
-            <?php foreach($sentencia as $valores) {?> 
+            <?php foreach(resultadoAsigacionesNoticias as $valores) {
+                  $busquedaNoticias = manejo::buscarNoticia_NoticiaId($valores['identificadorNoticia']); 
+                ?> 
                 <div class="col-md-4 mb-4"> <!-- Cambia a col-md-6 si quieres 2 columnas -->
                     <div class="card d-flex flex-column align-items-center">
-                        <img class="card-img-top" style="width: 60%;" src="./img/imagenesColaboradores/<?php echo $valores['imagen']?>" alt="">
+                        <img class="card-img-top" style="width: 60%;" src="./img/imagenesNoticias/<?php echo $busquedaNoticias[0]['imagen']?>" alt="">
                         <div class="card-body">
-                            <h5 class="card-title"><?php echo $valores['nombre']?></h5>
-                            <p class="card-text"><?php echo $valores['areaInvestigacion']?></p>
-                            <p class="card-text"><small class="text-muted"><?php echo $valores['areaTrabajo']?></small></p>
+                            <h5 class="card-title"><?php echo $busquedaNoticias[0]['titulo']?></h5>
+                            <p class="card-text"><?php echo $busquedaNoticias[0]['resumen']?></p>
+                            <a href="direccionEspecificaNoticias.php?id=<?php echo $busquedaNoticias[0]['id']?>" class="btn btn-primary" role="button" name="" id="">Ver Noticia</a>
                         </div>
                     </div>
                 </div>

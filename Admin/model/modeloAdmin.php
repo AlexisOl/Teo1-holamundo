@@ -17,7 +17,6 @@ class modeloAdmin {
     
         // Configurar el modo de error para mostrar excepciones
         $this->conexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-        echo "conexion realizada"."<br/>";
     
         // Resto de operaciones con la base de datos...
     } catch (PDOException $e) {
@@ -97,13 +96,12 @@ class modeloAdmin {
         return $this->conexion->lastInsertId();   
     }
 
-    public function muestraNoticias($tabla)
-    {
+    public function muestraNoticias($tabla){
         $sql = "SELECT * FROM " . $tabla . ";";
         $generarAccion = $this->conexion->query($sql);
         return $generarAccion->fetchAll();
     
-        }
+    }
         public function eliminarNoticias($tabla, $id) {
             try {
                 $sentenciaSql = "DELETE FROM " . $tabla . " WHERE `id` = " . $id . ";";
@@ -131,6 +129,78 @@ class modeloAdmin {
     
         $stmt->execute();
         return $this->conexion->lastInsertId();   
+    }
+
+    public function muestraAsingacionNoticias($tabla){
+        $sql = "SELECT * FROM " . $tabla . ";";
+        $generarAccion = $this->conexion->query($sql);
+        return $generarAccion->fetchAll();
+    
+    }
+    //comentarios 
+
+    public function muestraComentarios($tabla){
+        $sql = "SELECT * FROM " . $tabla . ";";
+        $generarAccion = $this->conexion->query($sql);
+        return $generarAccion->fetchAll();
+    
+    }
+
+    //ACTIVIDADES
+
+    public function guardarInformacionActividad($tabla,  $titulo, $fecha_inicio, $fecha_fin , $descripcion, $imagen) {
+        $sql = "INSERT INTO ACTIVIDADES (nombre, fecha_inicio, fecha_fin, imagen, descripcion ) VALUES (:titulo, :fecha_inicio, :fecha_fin, :imagen ,:descripcion)";
+        $stmt = $this->conexion->prepare($sql);
+        $stmt->bindParam(':titulo', $titulo, PDO::PARAM_STR);
+        $stmt->bindParam(':fecha_inicio', $fecha_inicio, PDO::PARAM_STR);
+        $stmt->bindParam(':fecha_fin', $fecha_fin, PDO::PARAM_STR);
+        $stmt->bindParam(':descripcion', $descripcion, PDO::PARAM_STR);
+        $stmt->bindParam(':imagen', $imagen, PDO::PARAM_STR);
+    
+        $stmt->execute();
+        return $this->conexion->lastInsertId();   
+    }
+
+    public function muestraActividades($tabla){
+        $sql = "SELECT * FROM " . $tabla . ";";
+        $generarAccion = $this->conexion->query($sql);
+        return $generarAccion->fetchAll();
+    
+    }
+        public function eliminarActividades($tabla, $id) {
+            try {
+                $sentenciaSql = "DELETE FROM " . $tabla . " WHERE `identificador` = " . $id . ";";
+                $generarAccion = $this->conexion->query($sentenciaSql);
+                if ($generarAccion) {
+                    header('Location:direccionEdicionActividades.php');
+                    return true;
+                } else {
+                    return false;
+                }
+            }catch(exception $e){
+                echo "error en ".$e;
+        
+            }
+    }
+
+    // asignacion Actividades
+    public function guardarAsigncacionInformacionActividad($tabla, $identificadorUser, $area, $identificadorAct, $fecha) {
+        $sql = "INSERT INTO ".$tabla." (id, identificadorActividad, identificadorUsuario, fecha, area) VALUES (NULL, :identificadorAct, :identificadorUser, :fecha, :area)";
+        $stmt = $this->conexion->prepare($sql);
+        $stmt->bindParam(':identificadorUser', $identificadorUser, PDO::PARAM_STR);
+        $stmt->bindParam(':identificadorAct', $identificadorAct, PDO::PARAM_STR);
+        $stmt->bindParam(':fecha', $fecha, PDO::PARAM_STR);
+        $stmt->bindParam(':area', $area, PDO::PARAM_STR);
+    
+        $stmt->execute();
+        return $this->conexion->lastInsertId();   
+    }
+
+    public function muestraAsingacionActividad($tabla){
+        $sql = "SELECT * FROM " . $tabla . ";";
+        $generarAccion = $this->conexion->query($sql);
+        return $generarAccion->fetchAll();
+    
     }
 }
 
