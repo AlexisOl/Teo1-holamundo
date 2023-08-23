@@ -162,6 +162,13 @@ class conexion {
             $generarAccion = $this->conexion->query($sql);
             return $generarAccion->fetchAll(); 
         }
+
+        //usuarios para el login:
+        public function mostrarUsuarios($tabla){
+            $sql = "SELECT * FROM " . $tabla . ";";
+            $generarAccion = $this->conexion->query($sql);
+            return $generarAccion->fetchAll();
+        }
    
 }
 

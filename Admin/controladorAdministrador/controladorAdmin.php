@@ -26,6 +26,12 @@ class manejoAdmin{
         $busqueda = $colaboradores->buscarColaboradores("COLABORADORES",$identificador);
         return $busqueda;
     }
+
+    static function editarColaborador($identificador,  $nuevoNombre, $nuevaAreaInv, $nuevoTrabajo, $imagen) {
+        $colaboradores = new modeloAdmin();
+        $colaboradores->editarColaborador("COLABORADORES",$identificador, $nuevoNombre, $nuevaAreaInv, $nuevoTrabajo, $imagen);
+    }
+
     //noticias
     static function ingresoNoticias($titulo, $resumen, $general, $imagen ){
         $ingresoNoticias = new modeloAdmin();
@@ -40,6 +46,11 @@ class manejoAdmin{
         $colaboradores = new modeloAdmin();
         $colaboradores->eliminarNoticias("NOTICIAS",$idNoticia);
       
+    }
+
+    static function editarNoticia($id, $titulo, $resumen, $general, $imagen){
+        $colaboradores = new modeloAdmin();
+        $colaboradores->editarNoticia("NOTICIAS",$id, $titulo, $resumen, $general, $imagen);
     }
 
     //asignacion noticias
@@ -74,6 +85,11 @@ class manejoAdmin{
         $colaboradores->eliminarActividades("ACTIVIDADES",$idActividad);
       
     }
+    static function editarActividadesControl($identificador,  $nombre, $fecha_inicio, $fecha_fin , $descripcion, $imagen){
+        $colaboradores = new modeloAdmin();
+        $colaboradores->editarActividades("ACTIVIDADES",$identificador,  $nombre, $fecha_inicio, $fecha_fin , $descripcion, $imagen);
+    }
+    
   //asignacion Actividades
   static function ingresoAsignacionActividad($identificadorUser, $area, $identificadorAct, $fecha){
     $ingresoNoticias = new modeloAdmin();
@@ -84,5 +100,19 @@ static function mostrarAsignacionesActividades(){
     $colaboradores = new modeloAdmin();
     define("resultadoAsigacionesActividades",$colaboradores->muestraAsingacionActividad("ASIGNACION_ACTIVIDADES"));
 } 
+       // para usuarios
+
+       static function mostrarUsuario(){
+        $colaboradores = new modeloAdmin();
+        define("resultadoUsuarios",$colaboradores->mostrarUsuarios("USUARIOS"));
+  
+    }
+    static function buscarUsuarioNombre($nombre){
+        $colaboradores = new modeloAdmin();
+        $busqueda = $colaboradores->buscarUsuarios("USUARIOS",$nombre);
+        return $busqueda;
+    }
+
+    
 
 }

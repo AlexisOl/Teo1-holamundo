@@ -135,3 +135,6 @@
 .error {
   color: #FF0000;
 }
+.align-left {
+  margin-left: 0 !important; /* Utilizamos !important para anular cualquier estilo anterior */
+}

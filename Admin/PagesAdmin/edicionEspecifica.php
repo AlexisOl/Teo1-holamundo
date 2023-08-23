@@ -1,3 +1,11 @@
+<?php
+require_once("controladorAdministrador/controladorAdmin.php");
+//require_once("controladorAdministrador/controladorAdmin.php");
+manejoAdmin::mostrarUsuario();
+//eliminar
+
+
+?>
 
 <div class="container_usuarios">
     <!--INFO -->
@@ -9,25 +17,22 @@
     <form class="formlogin" method="post" enctype="multipart/form-data">
         <div class="mb-3">
             <label for="nombreUsuario" class="form-label">Nombre de Usuario</label>
-            <input name="valorUsuario" type="text" class="form-control" id="nombreUsuario" aria-describedby="nombreHelp" value="<?php echo $nombreUser?>">
+            <input name="valorUsuario" type="text" class="form-control" id="nombreUsuario" aria-describedby="nombreHelp" value="<?php echo $nombreUser ?>">
         </div>
 
         <div class="mb-3">
             <label for="exampleInputAreaInv" class="form-label">Contrasenia</label>
-            <input name="valorPassword" type="text" class="form-control" id="exampleInputPassword" value="<?php echo $password?>">
+            <input name="valorPassword" type="text" class="form-control" id="exampleInputPassword" value="<?php echo $password ?>">
         </div>
 
         <div class="mb-3">
             <label for="exampleInputTrabajo" class="form-label">Repita contrasenia</label>
-            <input name="valorPassword2" type="text" class="form-control" id="exampleInputPasswordAgain" value="<?php echo $password?>">
+            <input name="valorPassword2" type="text" class="form-control" id="exampleInputPasswordAgain" value="<?php echo $password ?>">
         </div>
 
 
         <!--INGRESO DE botones -->
 
 
-        <div class="container_buttons">
-            <button type="submit" class="btn boton  btn-warning" name="editarUsuario">Aceptar Edicion</button>
-        </div>
-    </form>
+   
 </div>

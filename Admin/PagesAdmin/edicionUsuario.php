@@ -2,6 +2,14 @@
 include("../db/conexion.php");
 ?>
 <?php
+require_once("controladorAdministrador/controladorAdmin.php");
+//require_once("controladorAdministrador/controladorAdmin.php");
+manejoAdmin::mostrarUsuario();
+//eliminar
+
+
+?>
+<?php
 
 $nombreUser = "";
 $password = "";
@@ -82,4 +90,27 @@ if ($_POST && isset($_POST['editarUsuario'])) {
 
         </div>
     </form>
+  <br>
+  <br><hr>
+    <div class="container">
+        <h1>Listado de Usuarios</h1>
+        <hr />
+    </div>
+    <div class="col-md-12">
+        <table class="table table-bordered  table-striped table-hover">
+            <thead class="bg-primary text-white">
+                <th>Identificador</th>
+                <th>Nombre Usuario</th>
+              
+            </thead>
+            <?php foreach (resultadoUsuarios as $valores) { ?>
+
+                <tr>
+                    <td><?php echo $valores['id'] ?></td>
+                    <td><?php echo $valores['nombre'] ?></td>
+                </tr>
+            <?php } ?>
+
+        </table>
+    </div>
 </div>

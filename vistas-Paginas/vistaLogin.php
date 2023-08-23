@@ -4,20 +4,17 @@ session_start();
 include("./sections/header.php");
 
 if ($_POST) {
-  $nombre = $_POST["valorUsuario"];
-
-
-
+  require_once("controlador/manejo.php");
+  manejo::mostrarUsuario();
  // echo "salida " . $nombre;
- if (($_POST["valorUsuario"]=="alexxus") && ($_POST["valorContraseña"]==1234)) {
-  $_SESSION['valorUsuario']="alexxus";
+ foreach(resultadoUsuarios as $valores) {
+  if (($_POST["valorUsuario"]==$valores['nombre']) && ($_POST["valorContraseña"]==$valores['contrasenia'])) {
+    $_SESSION['valorUsuario']=$valores['nombre'];
+    header("location:generalAdmin.php");
+    break;
+    } 
+ }
 
-  echo "salida " . $nombre;
-  header("location:generalAdmin.php");
-    
-  } else {
-    echo "Usuario o constrasenia incorrectos, intente nuevamente"."</br>";
-  }
 }
 
 
@@ -50,7 +47,5 @@ if ($_POST) {
 </div> 
 
 
-
-<button type="submit" class="boton2" onclick="location.href='./db/conexion.php'">prueba conexion</button>
 
 <?php include("./sections/footer.php") ?>

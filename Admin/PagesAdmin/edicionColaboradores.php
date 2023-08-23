@@ -5,8 +5,13 @@ manejoAdmin::mostrarCOlaboradores();
 //eliminar
 
 if ($_GET) {
-    $elementoAEliminar = $_GET['botonEliminar'];
-    manejoAdmin::eliminarColaborador($elementoAEliminar);
+    if($_GET['botonEliminar']) {
+        $elementoAEliminar = $_GET['botonEliminar'];
+        manejoAdmin::eliminarColaborador($elementoAEliminar);
+    } elseif($_GET['botonEditar']){
+
+    }
+   
 }
 
 ?>
@@ -44,12 +49,18 @@ if ($_GET) {
 
                 <td>
                     <div class="container_buttons">
-                        <input type="submit" name="botonEditar" class="btn btn-warning" value="Editar">
-                        <a href="?botonEliminar=<?php echo $valores['identificadorColaborador']; ?>" class="btn btn-danger">Eliminar</a>
+                    <a href="?botonEditar=<?php echo $valores['identificadorColaborador']; ?>" data-bs-target="#editChildresn<?php echo $valores['identificadorColaborador']; ?>" data-bs-toggle="modal" name="botonEditar" class="btn btn-warning">Editar</a>
+                    <a href="?botonEliminar=<?php echo $valores['identificadorColaborador']; ?>" class="btn btn-danger">Eliminar</a>
                     </div>
                 </td>
             </tr>
-        <?php } ?>
+            <?php
+        //para que jale el modal de edicion
+        include('modalEdicionColaboradores.php');?>
+      
+      <?php } ?>
+        
+      
 
     </table>
 </div>

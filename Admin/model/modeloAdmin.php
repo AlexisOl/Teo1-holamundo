@@ -81,6 +81,31 @@ class modeloAdmin {
     $generarAccion = $this->conexion->query($sql);
     return $generarAccion->fetchAll(); 
    }
+   public function editarColaborador($tabla, $identificador, $nuevoNombre, $nuevaAreaInv, $nuevoTrabajo, $imagen) {
+    // Consulta SQL para actualizar un registro
+    $sql = "UPDATE " . $tabla . " SET nombre = :nombre, areaInvestigacion = :areaInv, areaTrabajo = :trabajo, imagen = :imagen WHERE identificadorColaborador = :identificador";
+
+    // Preparar la consulta
+    $stmt = $this->conexion->prepare($sql);
+
+    // Vincular valores a los marcadores de posición
+    $stmt->bindParam(':nombre', $nuevoNombre, PDO::PARAM_STR);
+    $stmt->bindParam(':areaInv', $nuevaAreaInv, PDO::PARAM_STR);
+    $stmt->bindParam(':trabajo', $nuevoTrabajo, PDO::PARAM_STR);
+    $stmt->bindParam(':imagen', $imagen, PDO::PARAM_STR);
+    $stmt->bindParam(':identificador', $identificador, PDO::PARAM_INT);
+
+    // Ejecutar la consulta
+    if ($stmt->execute()) {
+        // La actualización se realizó correctamente
+        header('Location:direccionEdicionColaborador.php');
+        return true;
+    } else {
+        // Hubo un error en la actualización
+        return false;
+    }
+}
+
 
 
    //noticias
@@ -116,6 +141,31 @@ class modeloAdmin {
                 echo "error en ".$e;
         
             }
+    }
+
+    public function editarNoticia($tabla, $id, $titulo, $resumen, $general, $imagen) {
+        // Consulta SQL para actualizar un registro
+        $sql = "UPDATE " . $tabla . " SET titulo = :titulo, resumen = :resumen, general = :general, imagen = :imagen WHERE id = :id";
+    
+        // Preparar la consulta
+        $stmt = $this->conexion->prepare($sql);
+    
+        // Vincular valores a los marcadores de posición
+        $stmt->bindParam(':id', $id, PDO::PARAM_STR);
+        $stmt->bindParam(':titulo', $titulo, PDO::PARAM_STR);
+        $stmt->bindParam(':resumen', $resumen, PDO::PARAM_STR);
+        $stmt->bindParam(':general', $general, PDO::PARAM_STR);
+        $stmt->bindParam(':imagen', $imagen, PDO::PARAM_STR);
+    
+        // Ejecutar la consulta
+        if ($stmt->execute()) {
+            // La actualización se realizó correctamente
+            header('Location:direccionEdicionNoticia.php');
+            return true;
+        } else {
+            // Hubo un error en la actualización
+            return false;
+        }
     }
     //asignacion noticias
 
@@ -183,6 +233,34 @@ class modeloAdmin {
             }
     }
 
+
+    public function editarActividades($tabla, $identificador, $nombre, $fecha_inicio, $fecha_fin, $descripcion, $imagen) {
+        // Consulta SQL para actualizar un registro
+        $sql = "UPDATE $tabla SET nombre = :nombre, fecha_inicio = :fecha_inicio, fecha_fin = :fecha_fin, imagen = :imagen, descripcion = :descripcion WHERE identificador = :identificador";
+        
+        // Preparar la consulta
+        $stmt = $this->conexion->prepare($sql);
+    
+        // Vincular valores a los marcadores de posición
+        $stmt->bindParam(':nombre', $nombre, PDO::PARAM_STR);
+        $stmt->bindParam(':fecha_inicio', $fecha_inicio, PDO::PARAM_STR);
+        $stmt->bindParam(':fecha_fin', $fecha_fin, PDO::PARAM_STR);
+        $stmt->bindParam(':imagen', $imagen, PDO::PARAM_STR);
+        $stmt->bindParam(':descripcion', $descripcion, PDO::PARAM_STR);
+        $stmt->bindParam(':identificador', $identificador, PDO::PARAM_INT);
+    
+        // Ejecutar la consulta
+        if ($stmt->execute()) {
+            // La actualización se realizó correctamente
+            header('Location: direccionEdicionActividades.php');
+            return true;
+        } else {
+            // Hubo un error en la actualización
+            return false;
+        }
+    }
+    
+
     // asignacion Actividades
     public function guardarAsigncacionInformacionActividad($tabla, $identificadorUser, $area, $identificadorAct, $fecha) {
         $sql = "INSERT INTO ".$tabla." (id, identificadorActividad, identificadorUsuario, fecha, area) VALUES (NULL, :identificadorAct, :identificadorUser, :fecha, :area)";
@@ -202,6 +280,21 @@ class modeloAdmin {
         return $generarAccion->fetchAll();
     
     }
+
+
+           //usuarios para el login:
+           public function mostrarUsuarios($tabla){
+            $sql = "SELECT * FROM " . $tabla . ";";
+            $generarAccion = $this->conexion->query($sql);
+            return $generarAccion->fetchAll();
+        }
+
+        public function buscarUsuarios($tabla, $nombre) {
+            $sql = "SELECT * FROM " . $tabla .  " WHERE `nombre` = ".$nombre.";";
+            $generarAccion = $this->conexion->query($sql);
+            return $generarAccion->fetchAll(); 
+           }
+   
 }
 
 ?>

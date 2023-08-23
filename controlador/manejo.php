@@ -94,7 +94,15 @@ static function mostrarActividades(){
 
             return $resultadoAsigacionesNoticiasDesc;
         }
+    
 
+        // para usuarios
+
+        static function mostrarUsuario(){
+            $colaboradores = new conexion();
+            define("resultadoUsuarios",$colaboradores->mostrarUsuarios("USUARIOS"));
+      
+        }
 
 
 }

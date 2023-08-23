@@ -38,7 +38,7 @@ if ($_GET) {
 
                 <td>
                     <div class="container_buttons">
-                        <input type="submit" name="botonEditar" class="btn btn-warning" value="Editar">
+                        
                         <a href="?botonEliminar=<?php echo $valores['id']; ?>" class="btn btn-danger">Eliminar</a>
                     </div>
                 </td>

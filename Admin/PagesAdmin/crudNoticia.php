@@ -39,11 +39,14 @@ if ($_GET) {
 
                 <td>
                     <div class="container_buttons">
-                        <input type="submit" name="botonEditar" class="btn btn-warning" value="Editar">
+                        <a href="?botonEditar=<?php echo $valores['id']; ?>" data-bs-target="#editChildresnNoticia<?php echo $valores['id']; ?>" data-bs-toggle="modal" name="botonEditar" class="btn btn-warning">Editar</a>
                         <a href="?botonEliminar=<?php echo $valores['id']; ?>" class="btn btn-danger">Eliminar</a>
                     </div>
                 </td>
             </tr>
+            <?php
+        //para que jale el modal de edicion
+        include('modalEdicionNoticias.php');?>
         <?php } ?>
 
     </table>
