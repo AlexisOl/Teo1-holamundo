@@ -49,28 +49,6 @@ if ($_POST) {
         <hr />
     </div>
     <div class="col-lg-16 row-md-10">
-        <h4 class="mb-3">Ingrese el identificador del colaborador</h4>
-        <form class="needs-validation was-validated " method="post">
-            <div class="row g-5">
-                <div class="col-sm-6">
-                    <label class="form-label" for="identificador">Identificador</label>
-                    <input name="identificador" id="identificador" type="text" class="form-control" required="">
-                    <div class="invalid-feedback">
-                        Identificador requerido
-                    </div>
-                </div>
-                <div class="col-sm-6">
-                    <label class="form-label" for="nombre">Nombre</label>
-                    <input id="nombre" type="text" class="form-control" value="<?php echo isset($busqueda[0]['nombre']) ? $busqueda[0]['nombre'] : 'nada'; ?>" readonly>
-
-                </div>
-
-                <div class="col-sm-5">
-                    <button class="w-100 btn btn-primary btn-md" type="submit" name="buscar">Buscar</button>
-                </div>
-            </div>
-        </form>
-        <hr class="my-4" />
         <form class="needs-validation was-validated " method="post" enctype="multipart/form-data">
             <div class="row g-5">
                 <h4 class="mb-3">Ingrese la informacion de la Noticias</h4>
@@ -129,21 +107,7 @@ if ($_POST) {
             <hr>
             <br>
             <div class="row">
-                <div class="col-md-6">
-                    <h4 class="mb-3">Informacion colaborador</h4>
-                    <table class="table table-bordered table-striped table-hover">
-                        <thead class="table-dark">
-                            <th>Identificador</th>
-                            <th>Nombre colaborador</th>
-                        </thead>
-                        <tbody>
-                            <tr>
-                                <td><?php echo  $elementoABuscar; ?></td>
-                                <td><?php echo isset($busqueda[0]['nombre']) ? $busqueda[0]['nombre'] : 'nada'; ?></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
+            
                 <div class="col-md-6">
                     <h4 class="mb-3">Informacion Noticias</h4>
                     <table class="table table-bordered table-striped table-hover">
@@ -158,24 +122,12 @@ if ($_POST) {
                                 <td><?php echo $titulo ?></td>
                                 <td><?php echo $descripcion ?></td>
                                 <td><?php echo $contenido ?></td>
-                                <td>
-
-                                    a
-                                </td>
                             </tr>
                         </tbody>
                     </table>
                 </div>
             </div>
 
-
-
-            <div class="row g-8">
-                <h4 class="mb-3">Ingrese el identificador del colaborador</h4>
-
-            </div>
-
-            <button class="w-100 btn btn-primary btn-md" type="submit" name="verMas">Guardar Informacion Global</button>
         </div>
 
     </div>

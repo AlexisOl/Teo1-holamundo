@@ -11,7 +11,7 @@ if ($_GET) {
 
 ?>
 <div class="container">
-    <h1>Listado de Noticias sin enlaces</h1>
+    <h1>Listado de Noticias enlazadas</h1>
     <hr />
 </div>
 <div class="col-md-12">

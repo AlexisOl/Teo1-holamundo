@@ -11,7 +11,7 @@ if ($_GET) {
 
 ?>
 <div class="container">
-    <h1>Listado de Actividades sin enlaces</h1>
+    <h1>Listado de Actividades enlazadas</h1>
     <hr />
 </div>
 <div class="col-md-12">
